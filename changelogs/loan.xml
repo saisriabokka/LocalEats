@@ -1,0 +1,17 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet id="2-loan-table" author="saisriabokka">
+        <comment>Create Loan table</comment>
+        <createTable tableName="Loan">
+            <column name="id" type="INT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="amount" type="DECIMAL(18,2)"/>
+            <column name="customer_id" type="INT"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="Loan"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>
